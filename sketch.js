@@ -7,6 +7,7 @@ let seethrough2=100
 let c
 
 function setup() {
+  window.resizeTo(700,775)
   c=createCanvas(windowWidth, windowHeight);
 
   while(used.length<25){
@@ -18,7 +19,7 @@ function setup() {
 }
 
 function draw() {
-  background(mouseY,mouseX,175);
+  background(mouseY,mouseX,180);
   textAlign(CENTER)
   textSize(36)
   fill(0)
