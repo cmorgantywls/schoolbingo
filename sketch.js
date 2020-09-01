@@ -7,6 +7,7 @@ let nums=[]
 let seethrough=100
 let seethrough2=100
 let c
+let padLeft;
 
 function setup() {
 
@@ -26,7 +27,7 @@ function draw() {
   textSize(36)
   fill(0)
   text("NYC DOE School Reopening Bingo", width/2,25)
-  let padLeft = (width-500)/2
+  padLeft = (width-500)/2
 
   //draw bingo board
   let counter = 0
@@ -88,13 +89,11 @@ function windowResized() {
 
 function mousePressed(){
   if(collidePointRect(mouseX,mouseY,padLeft+25,75,175,50)){
-    alert("Reload")
     location.reload()
   }
 
 
   if(collidePointRect(mouseX,mouseY,padLeft+300,75,175,50)){
-    alert("Canvas Saved")
     saveCanvas(c,"schoolBingoBoard","jpg")
   }
 
