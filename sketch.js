@@ -26,10 +26,11 @@ function draw() {
   textSize(36)
   fill(0)
   text("NYC DOE School Reopening Bingo", width/2,25)
+  let padLeft = (width-500)/2
 
   //draw bingo board
   let counter = 0
-  for(x=50; x<550; x+=100){
+  for(x=padLeft; x<padLeft + 500; x+=100){
     for(y=150;y<650; y+=100){
       fill(255,100)
       strokeWeight(1)
@@ -55,25 +56,25 @@ function draw() {
 
   //button for refresh
   fill(255,255,0,seethrough)
-  rect(100,75,175,50)
+  rect(padLeft+25,75,175,50)
   fill(0)
   textSize(14)
-  text("REGENERATE BOARD",113,95)
+  text("REGENERATE BOARD",padLeft+25+13,95)
 
   //button for save canvas
   fill(255,255,0,seethrough2)
-  rect(325,75,175,50)
+  rect(padLeft + 300,75,175,50)
   fill(0)
-  text("SAVE BOARD",365,95)
+  text("SAVE BOARD",padLeft+340,95)
 
-  if(collidePointRect(mouseX,mouseY,100,75,175,50)){
+  if(collidePointRect(mouseX,mouseY,padLeft+25,75,175,50)){
     seethrough=255
   }
   else{
     seethrough=100
   }
 
-  if(collidePointRect(mouseX,mouseY,325,75,175,50)){
+  if(collidePointRect(mouseX,mouseY,padLeft+300,75,175,50)){
     seethrough2 = 255
   }
   else{
@@ -86,12 +87,14 @@ function windowResized() {
 }
 
 function mousePressed(){
-  if(collidePointRect(mouseX,mouseY,100,75,175,50)){
+  if(collidePointRect(mouseX,mouseY,padLeft+25,75,175,50)){
+    alert("Reload")
     location.reload()
   }
 
 
-  if(collidePointRect(mouseX,mouseY,325,75,175,50)){
+  if(collidePointRect(mouseX,mouseY,padLeft+300,75,175,50)){
+    alert("Canvas Saved")
     saveCanvas(c,"schoolBingoBoard","jpg")
   }
 
